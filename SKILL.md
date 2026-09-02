@@ -3,17 +3,38 @@ name: domain-context
 description: Build and sharpen a project glossary and decision context when terminology is ambiguous, CONTEXT.md needs updating, or an ADR records a meaningful architectural choice.
 ---
 
-# Domain Context
+# Domain context
 
-Maintain a concise shared language between the user, agent, and codebase.
+Make project language describe the as-built system accurately. The glossary is
+a navigation aid and decision record, not a substitute for reading the source.
 
-## Workflow
+## Ground the context
 
-1. Read the existing `CONTEXT.md`, glossary, and nearby ADRs before proposing terms.
-2. Identify overloaded, vague, or inconsistent domain language.
-3. Test each candidate term against concrete scenarios and edge cases.
-4. Cross-reference the term with the code, configuration, and interfaces that use it.
-5. Update the project glossary only with language supported by the evidence.
-6. Offer an ADR only when the decision is difficult to reverse, surprising without context, or the result of a real trade-off.
+Read the existing `CONTEXT.md`, glossary, relevant ADRs, interfaces,
+configuration, and implementation before proposing terminology. Record where
+the sources agree, where they conflict, and where the meaning is inferred.
 
-Keep the glossary authoritative and concise. Do not rewrite code merely to introduce terminology unless the user asks for implementation.
+For each ambiguous or overloaded term:
+
+1. Name the actors, object, state, or boundary it describes.
+2. Test the meaning against a normal scenario and a boundary case.
+3. Trace the term to the code, configuration, or external interface that makes
+   it real.
+4. Distinguish current behaviour from a proposed model.
+5. Resolve contradictions with the user when evidence alone is insufficient.
+
+## Preserve only durable context
+
+Propose concise definitions supported by the evidence and show them before
+editing. Update the glossary only when that repository write is within the
+user's request. Prefer the repository's established language unless it is
+materially misleading. Re-read the changed file and report the resulting
+definitions. Report unresolved inconsistencies instead of silently choosing one
+meaning.
+
+Offer an ADR only when future maintainers will need to understand a
+hard-to-reverse choice, a surprising constraint, or a material trade-off. An ADR
+must state the prior state, decision, evidence, alternatives, and consequences.
+
+Do not rename or rewrite production code merely to make the terminology tidy.
+Implementation remains separate work unless the user asks for it.
