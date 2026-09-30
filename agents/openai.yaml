@@ -2,3 +2,5 @@ interface:
   display_name: "Domain Context"
   short_description: "Sharpen project terms and decisions"
   default_prompt: "Use $domain-context to check the project glossary and decision context."
+policy:
+  allow_implicit_invocation: false
