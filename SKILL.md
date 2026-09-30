@@ -1,6 +1,6 @@
 ---
 name: domain-context
-description: Build and sharpen a project glossary and decision context when terminology is ambiguous, CONTEXT.md needs updating, or an ADR records a meaningful architectural choice.
+description: Build and sharpen a project glossary such as CONTEXT.md and architecture decision records grounded in the as-built system. Use when the user asks to define or reconcile ambiguous project terminology, update the glossary, or record a meaningful architectural decision as an ADR. Not for designing a module (use codebase-design) or clarifying a plan (use requirements-grilling).
 ---
 
 # Domain context
@@ -13,6 +13,9 @@ a navigation aid and decision record, not a substitute for reading the source.
 Read the existing `CONTEXT.md`, glossary, relevant ADRs, interfaces,
 configuration, and implementation before proposing terminology. Record where
 the sources agree, where they conflict, and where the meaning is inferred.
+If no glossary or ADR location exists, propose one that follows the
+repository's conventions, such as `CONTEXT.md` and `docs/adr/NNNN-title.md`,
+and confirm it before creating anything.
 
 For each ambiguous or overloaded term:
 
